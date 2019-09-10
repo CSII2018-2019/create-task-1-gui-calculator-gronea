@@ -129,17 +129,67 @@ public class CalculatorGUI extends JFrame {
 	}
 
 	private void calcHigher() {
-		// TODO Auto-generated method stub
+		double x = Double.parseDouble(in1.getText());
+		double y = Double.parseDouble(in2.getText());
+		double higher = 0;
 		
+		if (x > y) {
+			higher = x;
+		}
+		else {
+			higher = y;
+		}
+		
+		answer.setText("The higher number is: " + higher);
 	}
 
 	private void calcPerChange() {
-		// TODO Auto-generated method stub
+		double x = Double.parseDouble(in1.getText());
+		double y = Double.parseDouble(in2.getText());
+		double perChange = 0;
 		
+		if (x == 0) {
+			answer.setText("Can't divide by zero");
+		}
+		else{
+			if (x < y) {
+				perChange = ((y-x)/x) * 100;
+				//System.out.println("(A) X: " + x + " Y: " + y + " perChange: " + perChange);
+			}
+			else {
+				perChange = ((x-y)/x) * 100;
+				//System.out.println("(B) X: " + x + " Y: " + y + " perChange: " + perChange);
+			}
+			
+			answer.setText("Percent change is: " + perChange);		
+		}
 	}
 
 	private void calcFactorial() {
-		// TODO Auto-generated method stub
+		double x = Double.parseDouble(in1.getText());
+		double y = Double.parseDouble(in2.getText());
+		double totalX = 1;
+		double totalY = 1;
+		
+		//prevents negative factorial
+		if (x < 0 || y < 0) {
+			answer.setText("Can't do negative factorial");
+		}		
+		else{
+			//if x or y equals 0 it will be 1; therefore i do not to make a function for it
+			if (x > 0) {
+				for (int i = 0; i != x; i++) {
+					totalX = totalX * (x-(i));
+				}
+			}
+			if (y > 0) {
+				for (int i = 0; i != y; i++) {
+					totalY = totalY * (y-(i));
+				}
+			}
+		}
+		
+		answer.setText("The Factorial of x is: " + totalX + ". The Factorial of y is: " + totalY);
 		
 	}
 
